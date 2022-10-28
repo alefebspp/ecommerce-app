@@ -1,0 +1,15 @@
+.categorys{
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.category{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: greenyellow;
+ border-radius: 1rem;
+ width: 6rem;
+ height: 5rem;
+}

@@ -1,5 +1,19 @@
 .header{
   background-color: greenyellow;
   width: 100vw;
-  height: 2rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.header__ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+   padding: 1rem;
+}
+
+li{
+  list-style: none;
 }
