@@ -10,7 +10,10 @@ import {
   IconButton
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { useNavigate } from 'react-router-dom';
 const NavigationButton = () => {
+  const navigate = useNavigate();
+
   return (
     <Menu>
       <MenuButton
@@ -20,8 +23,10 @@ const NavigationButton = () => {
         variant="outline"
       />
       <MenuList>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Create Product</MenuItem>
+        <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
+        <MenuItem onClick={() => navigate('/create-product')}>
+          Create Product
+        </MenuItem>
       </MenuList>
     </Menu>
   );
