@@ -1,0 +1,11 @@
+.swiper{
+  padding: 2rem;
+  
+  
+}
+
+.swiper-slide{
+  display: flex;
+  justify-content: center;
+  
+}
