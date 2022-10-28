@@ -1,13 +1,9 @@
 import './App.css';
-import Products from './components/Products';
-import Header from './components/common/Header/Header';
-import Categorys from './components/common/Sections/Sections';
+import AppRoutes from './routes/AppRoutes';
 function App() {
   return (
     <>
-      <Header />
-      <Categorys />
-      <Products />
+      <AppRoutes />
     </>
   );
 }

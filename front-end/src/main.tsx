@@ -4,13 +4,17 @@ import App from './App';
 import './index.css';
 import { ApiProvider } from '@reduxjs/toolkit/query/react';
 import { apiSlice } from './features/api/apiSlice';
+import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ApiProvider api={apiSlice}>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
-    </ApiProvider>
+    <BrowserRouter>
+      <ApiProvider api={apiSlice}>
+        <ChakraProvider>
+          <App />
+        </ChakraProvider>
+      </ApiProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -21,6 +21,7 @@ const NavigationButton = () => {
       />
       <MenuList>
         <MenuItem>Home</MenuItem>
+        <MenuItem>Create Product</MenuItem>
       </MenuList>
     </Menu>
   );
