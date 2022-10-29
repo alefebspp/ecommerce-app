@@ -1,9 +1,10 @@
 .header{
-  background-color: greenyellow;
+  background-color: #565264;
   width: 100vw;
   height: 4rem;
   display: flex;
   align-items: center;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 }
 
 .header__ul{
