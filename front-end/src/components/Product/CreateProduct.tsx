@@ -5,28 +5,28 @@ import {
   Stack,
   InputGroup,
   InputLeftElement,
-  Icon
+  Icon,
+  Button
 } from '@chakra-ui/react';
-import { useState, ChangeEvent } from 'react';
-import { FaPlus, FaDollarSign, FaLightbulb } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaPlus, FaDollarSign, FaLightbulb, FaCheck } from 'react-icons/fa';
 import axios from 'axios';
 import ImageInput from '../../util/ImageInput';
+import { useContext } from 'react';
 import '../Products.css';
+import { ProductContext } from '../../contexts/ProductContext';
 const CreateProduct = () => {
-  const [value, setValue] = useState<string>();
-  const [image, setImage] = useState<File>();
-  const [selectedImage, setSelectedImage] = useState();
+  const [radioValue, setRadioValue] = useState<string>();
+  const { selectedImage, image, setImage } = useContext(ProductContext);
 
-  function imageUpload(event: ChangeEvent<HTMLInputElement>) {
-    setImage(event.target.files?.[0]);
+  function imageUpload() {
     const formData = new FormData();
-    if (image) formData.append('file', image);
+    if (selectedImage) formData.append('file', selectedImage);
     formData.append('upload_preset', 'gkfohtue');
 
     axios
       .post('https://api.cloudinary.com/v1_1/ddjyksu33/image/upload', formData)
-      .then(response => setSelectedImage(response.data.url));
-    console.log(selectedImage);
+      .then(response => setImage(response.data.url));
   }
 
   return (
@@ -72,7 +72,7 @@ const CreateProduct = () => {
         </div>
       </form>
       <h1>Selecione a categoria do produto</h1>
-      <RadioGroup onChange={setValue} value={value}>
+      <RadioGroup onChange={setRadioValue} value={radioValue}>
         <Stack direction="row">
           <Radio colorScheme="gray" value="smartphone">
             <p className="radio-button-name">Smartphone</p>
@@ -88,6 +88,17 @@ const CreateProduct = () => {
           </Radio>
         </Stack>
       </RadioGroup>
+      <Button
+        onClick={() => imageUpload()}
+        leftIcon={<Icon as={FaCheck} />}
+        colorScheme="teal"
+        variant="outline"
+        backgroundColor="#565264"
+        color="#BEBEBE"
+        border="none"
+      >
+        Adicionar
+      </Button>
     </div>
   );
 };
