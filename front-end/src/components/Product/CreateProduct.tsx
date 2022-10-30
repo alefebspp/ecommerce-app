@@ -7,27 +7,37 @@ import {
   InputLeftElement,
   Icon
 } from '@chakra-ui/react';
-import { useState } from 'react';
-import { FaPlus, FaDollarSign, FaLightbulb, FaImage } from 'react-icons/fa';
+import { useState, ChangeEvent } from 'react';
+import { FaPlus, FaDollarSign, FaLightbulb } from 'react-icons/fa';
+import axios from 'axios';
+import ImageInput from '../../util/ImageInput';
 import '../Products.css';
 const CreateProduct = () => {
   const [value, setValue] = useState<string>();
+  const [image, setImage] = useState<File>();
+  const [selectedImage, setSelectedImage] = useState();
+
+  function imageUpload(event: ChangeEvent<HTMLInputElement>) {
+    setImage(event.target.files?.[0]);
+    const formData = new FormData();
+    if (image) formData.append('file', image);
+    formData.append('upload_preset', 'gkfohtue');
+
+    axios
+      .post('https://api.cloudinary.com/v1_1/ddjyksu33/image/upload', formData)
+      .then(response => setSelectedImage(response.data.url));
+    console.log(selectedImage);
+  }
 
   return (
     <div className="createProduct">
       <div className="createProduct__title">
-        <h1>Adicione um produto</h1>
         <Icon as={FaLightbulb} color="gray.300" />
+        <h1>Adicione um produto</h1>
       </div>
-      <form className="createProduct__form" action="">
-        <div className="createProduct__input__image">
-          <Icon as={FaImage} color="gray.300" />
-          <label className="label" htmlFor="image">
-            Selecionar Imagem
-          </label>
-          <Input style={{ display: 'none' }} type="file" id="image" />
-        </div>
 
+      <form className="createProduct__form" action="">
+        <ImageInput />
         <div className="createProduct__input">
           <InputGroup>
             <InputLeftElement

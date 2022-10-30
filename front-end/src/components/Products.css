@@ -59,12 +59,21 @@
  
 }
 
+.imageInput{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+ 
+}
+
 .createProduct__input__image{
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
-  border: 1px solid #BEBEBE;
+  background-color: #565264;
   height: 2rem;
   border-radius: 0.5rem;
   padding: 1rem;
