@@ -27,6 +27,9 @@ const NavigationButton = () => {
         <MenuItem onClick={() => navigate('/create-product')}>
           Create Product
         </MenuItem>
+        <MenuItem onClick={() => navigate('/user-products')}>
+          My Products
+        </MenuItem>
       </MenuList>
     </Menu>
   );

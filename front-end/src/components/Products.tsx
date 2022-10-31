@@ -14,8 +14,8 @@ const Products = () => {
   return (
     <Slider settings={settings}>
       {products?.map((product: Product) => (
-        <SwiperSlide>
-          <div className="product" key={product._id}>
+        <SwiperSlide key={product.name}>
+          <div className="product">
             <Image src={product.image} boxSize="160px" borderTopRadius="1rem" />
             <div className="product__div">
               <p className="product__title">

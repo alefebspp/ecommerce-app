@@ -1,12 +1,12 @@
 import { iconGroup } from '../../../util/iconGroup';
 import { Image } from '@chakra-ui/react';
 import './Sections.css';
-const Categorys = () => {
+const Sections = () => {
   return (
     <div className="categorys">
       {iconGroup.map((category: any) => {
         return (
-          <div className="category">
+          <div key={category} className="category">
             <Image src={category} boxSize="40px" />
           </div>
         );
@@ -15,4 +15,4 @@ const Categorys = () => {
   );
 };
 
-export default Categorys;
+export default Sections;

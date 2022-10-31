@@ -4,7 +4,7 @@ import '../components/Products.css';
 import { useState, useEffect, ChangeEvent } from 'react';
 import { useContext } from 'react';
 import { ProductContext } from '../contexts/ProductContext';
-import useProduct from '../hooks/useProduct';
+
 const ImageInput = () => {
   const { selectedImage, setSelectedImage } = useContext(ProductContext);
   const [preview, setPreview] = useState<string>();
@@ -35,7 +35,11 @@ const ImageInput = () => {
 
   return (
     <div className="imageInput">
-      {selectedImage && <Image src={preview} boxSize="150px" />}
+      {selectedImage ? (
+        <Image src={preview} boxSize="150px" />
+      ) : (
+        <Image src={'https://via.placeholder.com/150'} boxSize="150px" />
+      )}
       <div className="createProduct__input__image">
         <Icon as={FaImage} color="gray.300" />
         <label className="label" htmlFor="image">
