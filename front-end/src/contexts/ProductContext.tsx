@@ -6,7 +6,7 @@ const initialValue = {
   setCreateProduct: () => {},
   selectedImage: undefined,
   setSelectedImage: () => {},
-  image: undefined,
+  image: '',
   setImage: () => {}
 };
 
@@ -19,7 +19,7 @@ const ProductContextProvider = ({ children }: { children: ReactNode }) => {
   const [selectedImage, setSelectedImage] = useState<File | undefined>(
     initialValue.selectedImage
   );
-  const [image, setImage] = useState<File | undefined>(initialValue.image);
+  const [image, setImage] = useState<string>(initialValue.image);
   return (
     <ProductContext.Provider
       value={{

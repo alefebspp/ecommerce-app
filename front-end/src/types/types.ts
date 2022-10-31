@@ -1,15 +1,16 @@
 export type Product = {
+  _id?: string;
   name: string;
-  price: number;
+  price: number | undefined;
   category: string;
   image: string;
 };
 
 export type ProductContextType = {
   createProduct: Product | null;
-  setCreateProduct: (product: Product) => void;
+  setCreateProduct: (product: Product | null) => void;
   selectedImage: File | undefined;
   setSelectedImage: (image: File | undefined) => void;
-  image: File | undefined;
-  setImage: (image: File | undefined) => void;
+  image: string;
+  setImage: (image: string) => void;
 };

@@ -1,11 +1,11 @@
-import { useGetTodosQuery } from '../features/api/apiSlice';
-import { Product } from '../types/TodoTypes';
+import { useGetProductsQuery } from '../features/api/apiSlice';
+import { Product } from '../types/types';
 import { Image } from '@chakra-ui/react';
 import Slider from './common/Slider/Slider';
 import { SwiperSlide, SwiperProps } from 'swiper/react';
 import './Products.css';
 const Products = () => {
-  const { data: products } = useGetTodosQuery();
+  const { data: products } = useGetProductsQuery();
 
   const settings: SwiperProps = {
     spaceBetween: 150,

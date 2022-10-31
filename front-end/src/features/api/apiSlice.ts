@@ -1,14 +1,21 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Product } from '../../types/TodoTypes';
+import { Product } from '../../types/types';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000' }),
   endpoints: builder => ({
-    getTodos: builder.query<Product[], void>({
+    getProducts: builder.query<Product[], void>({
       query: () => '/product/all'
+    }),
+    postProduct: builder.mutation({
+      query: (product: Product | null) => ({
+        method: 'POST',
+        url: '/product/create',
+        body: product
+      })
     })
   })
 });
 
-export const { useGetTodosQuery } = apiSlice;
+export const { useGetProductsQuery, usePostProductMutation } = apiSlice;

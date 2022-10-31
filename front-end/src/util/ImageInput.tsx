@@ -4,6 +4,7 @@ import '../components/Products.css';
 import { useState, useEffect, ChangeEvent } from 'react';
 import { useContext } from 'react';
 import { ProductContext } from '../contexts/ProductContext';
+import useProduct from '../hooks/useProduct';
 const ImageInput = () => {
   const { selectedImage, setSelectedImage } = useContext(ProductContext);
   const [preview, setPreview] = useState<string>();

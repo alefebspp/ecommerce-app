@@ -10,24 +10,15 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaPlus, FaDollarSign, FaLightbulb, FaCheck } from 'react-icons/fa';
-import axios from 'axios';
 import ImageInput from '../../util/ImageInput';
-import { useContext } from 'react';
+import useProduct from '../../hooks/useProduct';
 import '../Products.css';
-import { ProductContext } from '../../contexts/ProductContext';
+
 const CreateProduct = () => {
-  const [radioValue, setRadioValue] = useState<string>();
-  const { selectedImage, image, setImage } = useContext(ProductContext);
-
-  function imageUpload() {
-    const formData = new FormData();
-    if (selectedImage) formData.append('file', selectedImage);
-    formData.append('upload_preset', 'gkfohtue');
-
-    axios
-      .post('https://api.cloudinary.com/v1_1/ddjyksu33/image/upload', formData)
-      .then(response => setImage(response.data.url));
-  }
+  const { handleSetCreateProduct } = useProduct();
+  const [radioValue, setRadioValue] = useState<string>('');
+  const [priceInputValue, setPriceInputValue] = useState<number | undefined>();
+  const [nameInputValue, setNameInputValue] = useState<string>('');
 
   return (
     <div className="createProduct">
@@ -45,6 +36,8 @@ const CreateProduct = () => {
               children={<Icon as={FaPlus} color="gray.300" />}
             />
             <Input
+              value={nameInputValue}
+              onChange={e => setNameInputValue(e.target.value)}
               type="text"
               focusBorderColor="#565264"
               borderColor="#BEBEBE"
@@ -61,6 +54,8 @@ const CreateProduct = () => {
               children={<Icon as={FaDollarSign} color="gray.300" />}
             />
             <Input
+              value={priceInputValue}
+              onChange={e => setPriceInputValue(parseInt(e.target.value))}
               type="number"
               focusBorderColor="#565264"
               borderColor="#BEBEBE"
@@ -89,7 +84,9 @@ const CreateProduct = () => {
         </Stack>
       </RadioGroup>
       <Button
-        onClick={() => imageUpload()}
+        onClick={() =>
+          handleSetCreateProduct(nameInputValue, priceInputValue, radioValue)
+        }
         leftIcon={<Icon as={FaCheck} />}
         colorScheme="teal"
         variant="outline"
