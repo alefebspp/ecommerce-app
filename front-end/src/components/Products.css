@@ -10,7 +10,6 @@
   width: 10rem;
   border-radius: 1rem;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-
 }
 
 .product__title{
@@ -89,7 +88,7 @@
   padding: 2rem;
 }
 
-.userProducts__div{
+.productCard{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,7 +97,7 @@
   border-radius: 1rem;
 }
 
-.userProducts__div2{
+.productCard__div{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,7 +105,7 @@
   padding: 1rem;
 }
 
-.userProducts__div2__p{
+.productCard__div__p{
   font-size: 0.7rem;
 }
 
