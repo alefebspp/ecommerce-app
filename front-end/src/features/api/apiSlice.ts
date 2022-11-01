@@ -8,6 +8,9 @@ export const apiSlice = createApi({
     getProducts: builder.query<Product[], void>({
       query: () => '/product/all'
     }),
+    getProduct: builder.query<Product, string>({
+      query: (id: string) => `/product/${id}`
+    }),
     postProduct: builder.mutation({
       query: (product: Product | null) => ({
         method: 'POST',
@@ -18,4 +21,8 @@ export const apiSlice = createApi({
   })
 });
 
-export const { useGetProductsQuery, usePostProductMutation } = apiSlice;
+export const {
+  useGetProductsQuery,
+  useGetProductQuery,
+  usePostProductMutation
+} = apiSlice;

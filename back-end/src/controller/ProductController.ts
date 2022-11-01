@@ -58,5 +58,17 @@ export default {
     } catch (error) {
       res.status(401).json(error);
     }
+  },
+  async getProduct(req: Request, res: Response) {
+    const { id } = req.params;
+    try {
+      const product = await Product.findOne({ _id: id });
+      if (!product) {
+        res.status(401).json('Produto não encontrado!');
+      }
+      res.status(200).json(product);
+    } catch (error) {
+      res.status(401).json(error);
+    }
   }
 };

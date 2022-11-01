@@ -1,9 +1,9 @@
 import { useGetProductsQuery } from '../features/api/apiSlice';
 import { Product } from '../types/types';
-import { Image } from '@chakra-ui/react';
 import Slider from './common/Slider/Slider';
 import { SwiperSlide, SwiperProps } from 'swiper/react';
 import './Products.css';
+import ProductCard from './Product/ProductCard';
 const Products = () => {
   const { data: products } = useGetProductsQuery();
 
@@ -15,17 +15,12 @@ const Products = () => {
     <Slider settings={settings}>
       {products?.map((product: Product) => (
         <SwiperSlide key={product.name}>
-          <div className="product">
-            <Image src={product.image} boxSize="160px" borderTopRadius="1rem" />
-            <div className="product__div">
-              <p className="product__title">
-                {product.name.substring(0, 30)}...
-              </p>
-              <h1>
-                <strong>R${product.price},00</strong>
-              </h1>
-            </div>
-          </div>
+          <ProductCard
+            firstDivClassName="product"
+            secondDivClassName="product__div"
+            product={product}
+            imageSize="160px"
+          />
         </SwiperSlide>
       ))}
     </Slider>

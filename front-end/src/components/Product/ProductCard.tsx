@@ -4,13 +4,20 @@ import { Product } from '../../types/types';
 interface ProductCardProps {
   product: Product;
   imageSize: string;
+  firstDivClassName: string;
+  secondDivClassName: string;
 }
 
-const ProductCard = ({ product, imageSize }: ProductCardProps) => {
+const ProductCard = ({
+  product,
+  imageSize,
+  firstDivClassName,
+  secondDivClassName
+}: ProductCardProps) => {
   return (
-    <div className="productCard">
+    <div className={firstDivClassName}>
       <Image src={product.image} boxSize={imageSize} borderTopRadius="1rem" />
-      <div className="productCard__div">
+      <div className={secondDivClassName}>
         <p className="productCard__div__p">
           {product.name.substring(0, 30)}...
         </p>
