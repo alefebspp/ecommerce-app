@@ -1,5 +1,5 @@
 import { useGetProductsQuery } from '../../../features/api/apiSlice';
-import '../../Products.css';
+import '../../../styles/css/Products.css';
 import ProductCard from '../ProductCard';
 const MyProducts = () => {
   const { data: products } = useGetProductsQuery();

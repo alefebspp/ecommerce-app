@@ -2,7 +2,7 @@ import { useGetProductsQuery } from '../features/api/apiSlice';
 import { Product } from '../types/types';
 import Slider from './common/Slider/Slider';
 import { SwiperSlide, SwiperProps } from 'swiper/react';
-import './Products.css';
+import '../styles/css/Products.css';
 import ProductCard from './Product/ProductCard';
 const Products = () => {
   const { data: products } = useGetProductsQuery();

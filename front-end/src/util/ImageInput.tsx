@@ -1,6 +1,6 @@
 import { Input, Icon, Image, Divider } from '@chakra-ui/react';
 import { FaImage } from 'react-icons/fa';
-import '../components/Products.css';
+import '../styles/css/Products.css';
 import { useState, useEffect, ChangeEvent } from 'react';
 import { useContext } from 'react';
 import { ProductContext } from '../contexts/ProductContext';
@@ -41,7 +41,7 @@ const ImageInput = () => {
         <Image src={'https://via.placeholder.com/150'} boxSize="150px" />
       )}
       <div className="createProduct__input__image">
-        <Icon as={FaImage} color="gray.300" />
+        <Icon as={FaImage} color="white" />
         <label className="label" htmlFor="image">
           Selecionar Imagem
         </label>

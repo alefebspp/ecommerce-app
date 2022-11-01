@@ -1,4 +1,4 @@
-import './Header.css';
+import '../../../styles/css/Header.css';
 import NavigationButton from './NavigationButton';
 
 const Header = () => {

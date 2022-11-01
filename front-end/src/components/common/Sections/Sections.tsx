@@ -1,6 +1,6 @@
 import { iconGroup } from '../../../util/iconGroup';
 import { Image } from '@chakra-ui/react';
-import './Sections.css';
+import '../../../styles/css/Products.css';
 const Sections = () => {
   return (
     <div className="categorys">

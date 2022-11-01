@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { FaPlus, FaDollarSign, FaLightbulb, FaCheck } from 'react-icons/fa';
 import ImageInput from '../../../util/ImageInput';
 import useProduct from '../../../hooks/useProduct';
-import '../../Products.css';
+import '../../../styles/css/Products.css';
 import InputComponent from './InputComponent';
 import SelectCategories from './SelectCategories';
 
@@ -47,11 +47,10 @@ const CreateProduct = () => {
         onClick={() =>
           handleSetCreateProduct(nameInputValue, priceInputValue, radioValue)
         }
-        leftIcon={<Icon as={FaCheck} color="gray.300" />}
-        colorScheme="teal"
+        leftIcon={<Icon as={FaCheck} color="white" />}
         variant="outline"
-        backgroundColor="#565264"
-        color="gray.300"
+        backgroundColor="#036666"
+        color="white"
         border="none"
       >
         Adicionar

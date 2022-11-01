@@ -1,0 +1,121 @@
+@use './styles';
+
+.products{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f0f0f0;
+}
+
+.product{
+  background-color: #FFFFFF;
+  width: 10rem;
+  border-radius: 1rem;
+  box-shadow: styles.$box-shadow;
+}
+
+.product__title{
+  font-size: styles.$productCard-title-fontSize;
+  font-weight: 500;
+}
+
+.product__div{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.createProduct{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.createProduct__title{
+  @include styles.center-elements();
+  gap: 1rem;
+}
+
+.createProduct__form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.createProduct__input{
+  @include styles.center-elements();
+  flex-direction: column;
+}
+
+.imageInput{
+  @include styles.center-elements();
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.createProduct__input__image{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  background: styles.$app-color;
+  height: 2rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.userProducts{
+  width: 100vw;
+  @include styles.center-elements();
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.productCard{
+  @include styles.center-elements();
+  flex-direction: column;
+  box-shadow: styles.$box-shadow;
+  border-radius: 1rem;
+}
+
+.productCard__div{
+  @include styles.center-elements();
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.productCard__div__p{
+  font-size: styles.$productCard-title-fontSize;
+}
+
+.categorys{
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.category{
+@include styles.center-elements();
+  background: styles.$app-color;
+ border-radius: 1rem;
+ width: 6rem;
+ height: 5rem;
+ box-shadow: styles.$box-shadow;
+}
+
+.label{
+  color: 	#FFFFFFFF;
+}
+
+.radio-button-name{
+  font-size: 0.7rem;
+}
