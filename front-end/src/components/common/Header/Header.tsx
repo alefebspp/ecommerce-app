@@ -9,7 +9,7 @@ const Header = () => {
         <ul className="header__ul">
           <li>
             <div className="header__div">
-              <Icon boxSize={6} as={FaBolt} color="yellow" />
+              <Icon boxSize={5} as={FaBolt} color="yellow" />
               <div className="header__div2">
                 <h1 className="header__h1">Lightning</h1>
                 <h1 className="header__h1">Market</h1>
