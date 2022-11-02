@@ -16,7 +16,7 @@ const CreateProduct = () => {
   return (
     <div className="createProduct">
       <div className="createProduct__title">
-        <Icon as={FaLightbulb} color="gray.300" />
+        <Icon as={FaLightbulb} color="#696969" />
         <h1>Adicione um produto</h1>
       </div>
 
@@ -27,7 +27,7 @@ const CreateProduct = () => {
           icon={FaPlus}
           value={nameInputValue}
           setValue={setNameInputValue}
-          placeholder="Digite o nome do produto"
+          placeholder="Digite o título"
           inputType="text"
           inputId="title"
         />
@@ -36,12 +36,12 @@ const CreateProduct = () => {
           icon={FaDollarSign}
           value={priceInputValue}
           setValue={setPriceInputValue}
-          placeholder="Digite o preço do produto"
+          placeholder="Digite o preço"
           inputType="number"
           inputId="price"
         />
       </form>
-      <h1>Selecione a categoria do produto</h1>
+      <h1>Selecione a categoria</h1>
       <SelectCategories value={radioValue} setValue={setRadioValue} />
       <Button
         onClick={() =>

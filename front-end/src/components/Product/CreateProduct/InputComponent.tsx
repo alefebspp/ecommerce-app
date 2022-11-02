@@ -23,17 +23,17 @@ const InputComponent = ({
       <InputGroup>
         <InputLeftElement
           pointerEvents="none"
-          children={<Icon as={icon} color="gray.300" />}
+          children={<Icon as={icon} color="#696969" />}
         />
         <Input
           value={value}
           onChange={e => setValue(e.target.value)}
           type={inputType}
           focusBorderColor="#565264"
-          borderColor="#BEBEBE"
+          borderColor="#036666"
           id={inputId}
           placeholder={placeholder}
-          _placeholder={{ fontSize: '0.8rem', color: '#BEBEBE' }}
+          _placeholder={{ fontSize: '0.8rem', color: '#696969' }}
         />
       </InputGroup>
     </div>
