@@ -15,6 +15,7 @@ const useProduct = () => {
     setCreateProduct
   } = useContext(ProductContext);
   const [postProduct] = usePostProductMutation();
+
   const navigate = useNavigate();
 
   function imageUpload() {

@@ -13,4 +13,6 @@ export type ProductContextType = {
   setSelectedImage: (image: File | undefined) => void;
   image: string;
   setImage: (image: string) => void;
+  product: Product | undefined;
+  setProduct: (value: Product | undefined) => void;
 };

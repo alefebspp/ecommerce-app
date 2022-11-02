@@ -8,8 +8,8 @@ const Products = () => {
   const { data: products } = useGetProductsQuery();
 
   const settings: SwiperProps = {
-    spaceBetween: 150,
-    slidesPerView: 3
+    spaceBetween: 30,
+    slidesPerView: 2
   };
   return (
     <Slider settings={settings}>

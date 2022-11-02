@@ -97,6 +97,18 @@
   font-size: styles.$productCard-title-fontSize;
 }
 
+.singleProduct{
+  width: 100vw;
+  @include styles.center-elements();
+  margin-top: 2rem
+}
+
+.singleProduct__div{
+  @include styles.center-elements();
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .categorys{
   display: flex;
   gap: 1rem;

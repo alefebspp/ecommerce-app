@@ -7,7 +7,9 @@ const initialValue = {
   selectedImage: undefined,
   setSelectedImage: () => {},
   image: '',
-  setImage: () => {}
+  setImage: () => {},
+  product: undefined,
+  setProduct: () => {}
 };
 
 export const ProductContext = createContext<ProductContextType>(initialValue);
@@ -20,6 +22,9 @@ const ProductContextProvider = ({ children }: { children: ReactNode }) => {
     initialValue.selectedImage
   );
   const [image, setImage] = useState<string>(initialValue.image);
+  const [product, setProduct] = useState<Product | undefined>(
+    initialValue.product
+  );
   return (
     <ProductContext.Provider
       value={{
@@ -28,7 +33,9 @@ const ProductContextProvider = ({ children }: { children: ReactNode }) => {
         selectedImage,
         setSelectedImage,
         image,
-        setImage
+        setImage,
+        product,
+        setProduct
       }}
     >
       {children}

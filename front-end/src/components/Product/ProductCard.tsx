@@ -8,14 +8,27 @@ interface ProductCardProps {
   secondDivClassName: string;
 }
 
+import { useGetProductQuery } from '../../features/api/apiSlice';
+import { useContext } from 'react';
+import { ProductContext } from '../../contexts/ProductContext';
+import { useNavigate } from 'react-router-dom';
+
 const ProductCard = ({
   product,
   imageSize,
   firstDivClassName,
   secondDivClassName
 }: ProductCardProps) => {
+  const { setProduct } = useContext(ProductContext);
+  const navigate = useNavigate();
+  const { data } = useGetProductQuery(product._id);
+  function handleGetProduct() {
+    setProduct(data);
+    navigate('/product');
+  }
+
   return (
-    <div className={firstDivClassName}>
+    <div onClick={handleGetProduct} className={firstDivClassName}>
       <Image src={product.image} boxSize={imageSize} borderTopRadius="1rem" />
       <div className={secondDivClassName}>
         <p className="productCard__div__p">
