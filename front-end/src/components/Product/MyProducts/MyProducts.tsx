@@ -8,6 +8,7 @@ const MyProducts = () => {
     <div className="userProducts">
       {products?.map(product => (
         <ProductCard
+          key={product._id}
           firstDivClassName="productCard"
           secondDivClassName="productCard__div"
           product={product}

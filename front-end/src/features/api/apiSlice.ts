@@ -17,6 +17,12 @@ export const apiSlice = createApi({
         url: '/product/create',
         body: product
       })
+    }),
+    deleteProduct: builder.mutation({
+      query: (id: string) => ({
+        method: 'DELETE',
+        url: `/product/delete/${id}`
+      })
     })
   })
 });
@@ -24,5 +30,6 @@ export const apiSlice = createApi({
 export const {
   useGetProductsQuery,
   useGetProductQuery,
-  usePostProductMutation
+  usePostProductMutation,
+  useDeleteProductMutation
 } = apiSlice;

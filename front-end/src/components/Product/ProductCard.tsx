@@ -1,5 +1,9 @@
 import { Image } from '@chakra-ui/react';
 import { Product } from '../../types/types';
+import { useGetProductQuery } from '../../features/api/apiSlice';
+import { useContext } from 'react';
+import { ProductContext } from '../../contexts/ProductContext';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductCardProps {
   product: Product;
@@ -7,11 +11,6 @@ interface ProductCardProps {
   firstDivClassName: string;
   secondDivClassName: string;
 }
-
-import { useGetProductQuery } from '../../features/api/apiSlice';
-import { useContext } from 'react';
-import { ProductContext } from '../../contexts/ProductContext';
-import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({
   product,
