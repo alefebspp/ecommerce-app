@@ -1,6 +1,7 @@
 import '../../../styles/css/Header.css';
 import NavigationButton from './NavigationButton';
-import { Icon } from '@chakra-ui/react';
+import { Icon, Button } from '@chakra-ui/react';
+import { FaShoppingCart } from 'react-icons/fa';
 import { FaBolt } from 'react-icons/fa';
 const Header = () => {
   return (
@@ -17,7 +18,10 @@ const Header = () => {
             </div>
           </li>
           <li>
-            <NavigationButton />
+            <div className="header__div3">
+              <Icon as={FaShoppingCart} color="white" />
+              <NavigationButton />
+            </div>
           </li>
         </ul>
       </nav>

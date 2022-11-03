@@ -3,10 +3,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   IconButton
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
@@ -19,8 +15,8 @@ const NavigationButton = () => {
       <MenuButton
         as={IconButton}
         aria-label="Options"
-        icon={<HamburgerIcon />}
-        variant="outline"
+        icon={<HamburgerIcon color="white" />}
+        variant="ghost"
       />
       <MenuList>
         <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
