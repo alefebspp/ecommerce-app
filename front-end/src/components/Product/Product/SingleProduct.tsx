@@ -15,12 +15,7 @@ const SingleProduct = () => {
           boxSize="200px"
         />
         <h1 className="singleProduct__title">{product?.name}</h1>
-        <h2 className="singleProduct__description">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book
-        </h2>
+        <h2 className="singleProduct__description">{product?.description}</h2>
         <p className="singleProduct__price">R${product?.price},00</p>
       </div>
       <div className="singleProduct__buttons">

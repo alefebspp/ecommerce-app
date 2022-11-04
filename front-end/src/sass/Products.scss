@@ -120,6 +120,8 @@
 
 .singleProduct__description{
 text-align: justify;
+font-size: styles.$productCard-title-fontSize;
+font-weight: 500;
 }
 
 .singleProduct__price{

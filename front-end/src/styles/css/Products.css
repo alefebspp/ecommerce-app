@@ -134,6 +134,8 @@
 
 .singleProduct__description {
   text-align: justify;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
 
 .singleProduct__price {

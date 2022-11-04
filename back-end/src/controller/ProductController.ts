@@ -11,12 +11,13 @@ export default {
     }
   },
   async createProduct(req: Request, res: Response) {
-    const { name, price, image, category } = req.body;
+    const { name, price, image, category, description } = req.body;
     const product = new Product({
       name: name,
       price: price,
       category: category,
-      image: image
+      image: image,
+      description: description
     });
     try {
       await product.save();
@@ -41,12 +42,13 @@ export default {
   },
   async updateProduct(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, price, category, image } = req.body;
+    const { name, price, category, image, description } = req.body;
     const data = {
       name: name,
       price: price,
       category: category,
-      image: image
+      image: image,
+      description: description
     };
     const product = await Product.findOne({ _id: id });
     try {

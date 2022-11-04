@@ -4,6 +4,7 @@ export type Product = {
   price: number | undefined;
   category: string;
   image: string;
+  description: string;
 };
 
 export type ProductContextType = {
