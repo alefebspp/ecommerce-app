@@ -1,4 +1,4 @@
-import { Icon, Button } from '@chakra-ui/react';
+import { Icon, Button, Textarea } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaPlus, FaDollarSign, FaLightbulb, FaCheck } from 'react-icons/fa';
 import ImageInput from '../../../util/ImageInput';
@@ -12,6 +12,8 @@ const CreateProduct = () => {
   const [radioValue, setRadioValue] = useState<string>('');
   const [priceInputValue, setPriceInputValue] = useState<number | undefined>();
   const [nameInputValue, setNameInputValue] = useState<string>('');
+  const [descriptionInputValue, setDescriptionInputValue] =
+    useState<string>('');
 
   return (
     <div className="createProduct">
@@ -40,12 +42,26 @@ const CreateProduct = () => {
           inputType="number"
           inputId="price"
         />
+
+        <Textarea
+          _placeholder={{ fontSize: '0.8rem', color: '#696969' }}
+          borderColor="#036666"
+          placeholder="Descrição do produto..."
+          focusBorderColor="#565264"
+          value={descriptionInputValue}
+          onChange={e => setDescriptionInputValue(e.target.value)}
+        />
       </form>
       <h1>Selecione a categoria</h1>
       <SelectCategories value={radioValue} setValue={setRadioValue} />
       <Button
         onClick={() =>
-          handleSetCreateProduct(nameInputValue, priceInputValue, radioValue)
+          handleSetCreateProduct(
+            nameInputValue,
+            priceInputValue,
+            radioValue,
+            descriptionInputValue
+          )
         }
         leftIcon={<Icon as={FaCheck} color="white" />}
         variant="outline"

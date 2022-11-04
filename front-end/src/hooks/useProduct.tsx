@@ -46,13 +46,15 @@ const useProduct = () => {
   function handleSetCreateProduct(
     name: string,
     price: number | undefined,
-    category: string
+    category: string,
+    description: string
   ) {
     setCreateProduct({
       name: name,
       price: price,
       category: category,
-      image: image
+      image: image,
+      description: description
     });
   }
 

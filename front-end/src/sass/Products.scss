@@ -50,10 +50,16 @@
   gap: 1rem;
 }
 
+
+
+
+
 .createProduct__input{
   @include styles.center-elements();
   flex-direction: column;
+ 
 }
+
 
 .imageInput{
   @include styles.center-elements();
@@ -71,6 +77,7 @@
   border-radius: 0.5rem;
   padding: 1rem;
 }
+
 
 .userProducts{
   width: 100vw;
