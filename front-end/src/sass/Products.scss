@@ -142,6 +142,22 @@ font-weight: 500;
   gap: 1rem;
 }
 
+.sections{
+  flex-direction: column;
+ @include styles.center-elements();
+}
+
+.sections__header{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.sections__title{
+  font-weight: 500;
+}
+
 .categorys{
   display: flex;
   gap: 1rem;
@@ -152,7 +168,7 @@ font-weight: 500;
 @include styles.center-elements();
   background: styles.$app-color;
  border-radius: 1rem;
- width: 6rem;
+ width: 4rem;
  height: 5rem;
  box-shadow: styles.$box-shadow;
 }
