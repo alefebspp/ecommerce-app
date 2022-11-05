@@ -72,5 +72,14 @@ export default {
     } catch (error) {
       res.status(401).json(error);
     }
+  },
+  async getProductsByCategory(req: Request, res: Response) {
+    const { category } = req.params;
+    try {
+      const product = await Product.find({ category: category }).limit(6);
+      res.status(201).json(product);
+    } catch (error) {
+      res.status(400).json(error);
+    }
   }
 };
