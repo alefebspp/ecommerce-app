@@ -8,6 +8,9 @@ export const apiSlice = createApi({
     getProducts: builder.query<Product[], void>({
       query: () => '/product/all'
     }),
+    getProductsByCategory: builder.query<Product[], string>({
+      query: category => `/product/categorys/${category}`
+    }),
     getProduct: builder.query<Product, string | undefined>({
       query: id => `/product/${id}`
     }),
@@ -28,6 +31,7 @@ export const apiSlice = createApi({
 });
 
 export const {
+  useGetProductsByCategoryQuery,
   useGetProductsQuery,
   useGetProductQuery,
   usePostProductMutation,

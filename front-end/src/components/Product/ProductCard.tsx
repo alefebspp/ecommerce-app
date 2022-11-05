@@ -31,7 +31,7 @@ const ProductCard = ({
       <Image src={product.image} boxSize={imageSize} borderTopRadius="1rem" />
       <div className={secondDivClassName}>
         <p className="productCard__div__p">
-          {product.name.substring(0, 30)}...
+          {product.name.substring(0, 25)}...
         </p>
         <h1>
           <strong>R${product.price},00</strong>

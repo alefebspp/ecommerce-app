@@ -24,6 +24,7 @@
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
+  height: 9rem;
 }
 
 .createProduct {
@@ -106,6 +107,23 @@
 .productCard__div__p {
   font-size: 0.7rem;
   font-weight: 700;
+}
+
+.productSlider {
+  display: flex;
+  flex-direction: column;
+}
+
+.productSlider__titleGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.productSlider__title {
+  font-weight: 500;
 }
 
 .singleProduct {
