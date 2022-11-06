@@ -17,3 +17,8 @@ export type ProductContextType = {
   product: Product | undefined;
   setProduct: (value: Product | undefined) => void;
 };
+
+export type ShoppingCartContextType = {
+  cartProduct: Product | undefined;
+  setCartProduct: (product: Product | undefined) => void;
+};
