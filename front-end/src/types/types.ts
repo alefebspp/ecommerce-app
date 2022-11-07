@@ -1,10 +1,10 @@
 export type Product = {
-  _id?: string;
-  name: string;
+  _id?: string | undefined;
+  name: string | undefined;
   price: number | undefined;
-  category: string;
-  image: string;
-  description: string;
+  category?: string;
+  image: string | undefined;
+  description?: string;
 };
 
 export type ProductContextType = {

@@ -1,10 +1,18 @@
 import { useContext } from 'react';
 import { ProductContext } from '../../../contexts/ProductContext';
 import { Image, Button, Icon } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '../../../features/shoppinCart/cartSlice';
 import { FaShoppingCart, FaDollarSign } from 'react-icons/fa';
 import '../../../styles/css/Products.css';
+import { RootState } from '../../../features/store';
 const SingleProduct = () => {
   const { product } = useContext(ProductContext);
+  const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart?.cart);
+  function teste() {
+    console.log(cart);
+  }
   return (
     <div className="singleProduct">
       <div className="singleProduct__div">
@@ -20,6 +28,16 @@ const SingleProduct = () => {
       </div>
       <div className="singleProduct__buttons">
         <Button
+          onClick={() =>
+            dispatch(
+              addProduct({
+                _id: product?._id,
+                name: product?.name,
+                price: product?.price,
+                image: product?.image
+              })
+            )
+          }
           color="white"
           leftIcon={<Icon as={FaShoppingCart} color="white" />}
           backgroundColor="#036666"
@@ -27,6 +45,7 @@ const SingleProduct = () => {
           Adicionar ao carrinho
         </Button>
         <Button
+          onClick={teste}
           color="white"
           leftIcon={<Icon as={FaDollarSign} color="white" />}
           backgroundColor="#036666"
