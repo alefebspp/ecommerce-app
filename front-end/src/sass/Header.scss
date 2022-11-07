@@ -1,7 +1,7 @@
 @use './styles';
 
 .header{
-  background: styles.$app-color;
+  background-color: #036666;
   width: 100vw;
   height: 4rem;
   display: flex;
@@ -30,10 +30,28 @@
   gap: 1rem;
 }
 
+.header__div3__cart{
+ position: relative;
+}
+
+.cart__length{
+position: absolute;
+bottom: 14px;
+left: 9px;
+background-color: red;
+border-radius: 50%;
+width: 1rem;
+height: 1rem;
+@include styles.center-elements();
+color: #FFFFFF;
+border: 2px solid #036666;
+font-size: styles.$productCard-title-fontSize;
+}
+
 .header__h1{
   font-size: styles.$productCard-title-fontSize;
   font-weight: 700;
-  color: #036666;
+  color: #99e2b4;
   line-height: 12px;
 }
 

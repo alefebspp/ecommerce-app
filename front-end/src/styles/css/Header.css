@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(90deg, rgb(153, 226, 180) 0%, rgb(3, 102, 102) 100%);
+  background-color: #036666;
   width: 100vw;
   height: 4rem;
   display: flex;
@@ -28,10 +28,30 @@
   gap: 1rem;
 }
 
+.header__div3__cart {
+  position: relative;
+}
+
+.cart__length {
+  position: absolute;
+  bottom: 14px;
+  left: 9px;
+  background-color: red;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  border: 2px solid #036666;
+  font-size: 0.7rem;
+}
+
 .header__h1 {
   font-size: 0.7rem;
   font-weight: 700;
-  color: #036666;
+  color: #99e2b4;
   line-height: 12px;
 }
 

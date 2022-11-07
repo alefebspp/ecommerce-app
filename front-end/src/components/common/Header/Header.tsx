@@ -3,7 +3,13 @@ import NavigationButton from './NavigationButton';
 import { Icon, Button } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { FaBolt } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../features/store';
+import { ReactNode } from 'react';
 const Header = () => {
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const conditionalShow = (element: ReactNode) =>
+    cart.length > 0 ? element : '';
   return (
     <div className="header">
       <nav>
@@ -19,7 +25,12 @@ const Header = () => {
           </li>
           <li>
             <div className="header__div3">
-              <Icon as={FaShoppingCart} color="white" />
+              <div className="header__div3__cart">
+                {conditionalShow(
+                  <div className="cart__length">{cart.length}</div>
+                )}
+                <Icon as={FaShoppingCart} color="white" />
+              </div>
               <NavigationButton />
             </div>
           </li>
