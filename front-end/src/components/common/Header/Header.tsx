@@ -6,7 +6,9 @@ import { FaBolt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../features/store';
 import { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
+  const navigate = useNavigate();
   const cart = useSelector((state: RootState) => state.cart.cart);
   const conditionalShow = (element: ReactNode) =>
     cart.length > 0 ? element : '';
@@ -25,7 +27,10 @@ const Header = () => {
           </li>
           <li>
             <div className="header__div3">
-              <div className="header__div3__cart">
+              <div
+                onClick={() => navigate('/cart')}
+                className="header__div3__cart"
+              >
                 {conditionalShow(
                   <div className="cart__length">{cart.length}</div>
                 )}

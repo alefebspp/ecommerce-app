@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import CreateProduct from '../components/Product/CreateProduct/CreateProduct';
 import MyProducts from '../components/Product/MyProducts/MyProducts';
 import SingleProduct from '../components/Product/Product/SingleProduct';
-import ShoppingCart from '../components/Product/ShoppingCart/ShoppingCart';
+import ShoppingCart from '../components/ShoppingCart/ShoppingCart';
 import Main from '../pages/Main/Main';
 
 const AppRoutes = () => {
