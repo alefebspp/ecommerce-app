@@ -154,7 +154,7 @@ font-weight: 500;
   @include styles.center-elements();
   padding: 1rem;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 .order{
   display: flex;
@@ -162,10 +162,20 @@ font-weight: 500;
   justify-content:center;
   flex-direction: column;
   gap: 1rem;
+  background-color: #F5F5F5;
+}
+.order__dark{
+  display: flex;
+  align-items: flex-start;
+  justify-content:center;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #E8E8E8 ;
 }
 .order__info{
   display: flex;
   gap: 1rem;
+  padding: 1rem;
 }
 .order__info__title{
   font-weight: 500;
@@ -173,7 +183,8 @@ font-weight: 500;
 .order__amount{
   display: flex;
   flex-direction: column;
-  gap: 1rem
+  gap: 1rem;
+  padding: 1rem;
 }
 .counter{
  @include styles.center-elements();

@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../features/store';
-import { Image } from '@chakra-ui/react';
-import Counter from './Counter';
 import '../../styles/css/Products.css';
+import ShoppingOrder from './ShoppingOrder';
 
 const ShoppingCart = () => {
   const cart = useSelector((state: RootState) => state.cart.cart);
@@ -12,14 +11,18 @@ const ShoppingCart = () => {
       <div className="shoppingCart">
         <div className="orders">
           {cart?.map(order => {
-            return (
-              <div className="order">
-                <div className="order__info">
-                  <Image boxSize="80px" src={order.image} />
-                  <h1 className="order__info__title">{order.name}</h1>
-                </div>
-                <Counter productPrice={order.price} />
-              </div>
+            return cart.indexOf(order) % 2 == 0 ? (
+              <ShoppingOrder
+                priceClassName={'order__price'}
+                orderClassName={'order'}
+                order={order}
+              />
+            ) : (
+              <ShoppingOrder
+                priceClassName={'order__price'}
+                orderClassName={'order__dark'}
+                order={order}
+              />
             );
           })}
         </div>
