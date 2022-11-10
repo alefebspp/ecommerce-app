@@ -1,13 +1,18 @@
+import { Product } from '../../types/types';
+import { useDispatch } from 'react-redux';
+import { FaTrashAlt, FaPlus, FaMinus } from 'react-icons/fa';
+import { Icon } from '@chakra-ui/react';
+import { removeProduct } from '../../features/shoppinCart/cartSlice';
 import { useEffect, useState } from 'react';
 
 interface CounterProps {
-  productPrice: number | undefined;
+  productPrice: Product | undefined;
 }
 
 const Counter = ({ productPrice }: CounterProps) => {
   const [counter, setCounter] = useState<number>(1);
-  const [productValue, setProductValue] = useState(productPrice);
-
+  const [productValue, setProductValue] = useState(productPrice?.price);
+  const dispatch = useDispatch();
   const incrementCounter = () => {
     setCounter(counter + 1);
   };
@@ -15,8 +20,12 @@ const Counter = ({ productPrice }: CounterProps) => {
     setCounter(counter - 1);
   };
 
+  const handleRemoveProduct = (orderId: string | undefined) => {
+    dispatch(removeProduct(orderId));
+  };
+
   useEffect(() => {
-    if (productPrice) setProductValue(counter * productPrice);
+    if (productPrice?.price) setProductValue(counter * productPrice?.price);
   }, [counter]);
 
   return (
@@ -25,13 +34,29 @@ const Counter = ({ productPrice }: CounterProps) => {
         <strong>R${productValue},00</strong>
       </p>
       <div className="counter">
-        <div onClick={decrementCounter} className="counter__button">
-          -
-        </div>
+        {counter == 1 ? (
+          <Icon
+            onClick={() => handleRemoveProduct(productPrice?._id)}
+            boxSize={4}
+            as={FaTrashAlt}
+            color="red"
+          />
+        ) : (
+          <Icon
+            onClick={decrementCounter}
+            boxSize={4}
+            as={FaMinus}
+            color="#036666"
+          />
+        )}
+
         <div>{counter}</div>
-        <div onClick={incrementCounter} className="counter__button">
-          +
-        </div>
+        <Icon
+          onClick={incrementCounter}
+          boxSize={4}
+          as={FaPlus}
+          color="#036666"
+        />
       </div>
     </div>
   );
