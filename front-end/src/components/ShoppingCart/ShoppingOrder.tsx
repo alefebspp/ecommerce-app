@@ -4,12 +4,10 @@ import Counter from './Counter';
 
 const ShoppingOrder = ({
   order,
-  orderClassName,
-  priceClassName
+  orderClassName
 }: {
   order: Product;
   orderClassName: string;
-  priceClassName: string;
 }) => {
   return (
     <div className={orderClassName}>
@@ -17,7 +15,7 @@ const ShoppingOrder = ({
         <Image boxSize="80px" src={order.image} />
         <h1 className="order__info__title">{order.name}</h1>
       </div>
-      <Counter orderPrice={priceClassName} productPrice={order.price} />
+      <Counter productPrice={order.price} />
     </div>
   );
 };

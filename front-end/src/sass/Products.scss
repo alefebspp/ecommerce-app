@@ -149,10 +149,9 @@ font-weight: 500;
   @include styles.center-elements();
   padding: 1rem;
 }
+
 .orders{
-  border: 1px solid lightgray;
   @include styles.center-elements();
-  padding: 1rem;
   flex-direction: column;
   gap: 1rem;
 }
@@ -162,7 +161,7 @@ font-weight: 500;
   justify-content:center;
   flex-direction: column;
   gap: 1rem;
-  background-color: #F5F5F5;
+  background-color: #F0F0F0;
 }
 .order__dark{
   display: flex;
@@ -170,7 +169,7 @@ font-weight: 500;
   justify-content:center;
   flex-direction: column;
   gap: 1rem;
-  background-color: #E8E8E8 ;
+  background-color: #D3D3D3 ;
 }
 .order__info{
   display: flex;
