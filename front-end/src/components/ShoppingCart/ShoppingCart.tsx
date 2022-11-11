@@ -8,9 +8,7 @@ import SectionsTitle from '../common/Sections/SectionsTitle';
 
 const ShoppingCart = () => {
   const cart = useSelector((state: RootState) => state.cart.cart);
-  const cartTotal = useSelector((state: RootState) => state.cart.cartTotal);
   const emptyCart = cart.length == 0;
-
   return (
     <div>
       <div className="shoppingCart">
@@ -19,26 +17,12 @@ const ShoppingCart = () => {
             <SectionsTitle icon={FaRegFrown} title="Carrinho vazio" />
           ) : (
             cart?.map(order => {
-              return (
-                <div>
-                  {cart.indexOf(order) % 2 == 0 ? (
-                    <ShoppingOrder orderClassName={'order'} order={order} />
-                  ) : (
-                    <ShoppingOrder
-                      orderClassName={'order__dark'}
-                      order={order}
-                    />
-                  )}
-                </div>
+              return cart.indexOf(order) % 2 == 0 ? (
+                <ShoppingOrder orderClassName={'order'} order={order} />
+              ) : (
+                <ShoppingOrder orderClassName={'order__dark'} order={order} />
               );
             })
-          )}
-          {emptyCart ? (
-            ''
-          ) : (
-            <div>
-              <h1>Total: R${cartTotal},00</h1>
-            </div>
           )}
         </div>
       </div>
