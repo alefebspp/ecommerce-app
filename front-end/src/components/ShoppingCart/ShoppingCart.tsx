@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../features/store';
 import '../../styles/css/Products.css';
 import { FaRegFrown } from 'react-icons/fa';
-import { Icon } from '@chakra-ui/react';
 import ShoppingOrder from './ShoppingOrder';
 import SectionsTitle from '../common/Sections/SectionsTitle';
 

@@ -1,7 +1,7 @@
 import { iconGroup } from '../../../util/iconGroup';
 import { Image, Divider } from '@chakra-ui/react';
 import { FaThList, FaMapSigns } from 'react-icons/fa';
-import SectionsTitle from './SectionsTitle';
+import { SectionsTitle } from '../Sections';
 import '../../../styles/css/Products.css';
 const Sections = () => {
   return (

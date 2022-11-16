@@ -1,10 +1,11 @@
 import { useGetProductsByCategoryQuery } from '../../../features/api/apiSlice';
 import ProductCard from '../ProductCard';
 import { Product } from '../../../types/types';
-import { SwiperProps, SwiperSlide } from 'swiper/react';
-import { Icon, Divider } from '@chakra-ui/react';
-import Slider from '../../common/Slider/Slider';
+import { Slider, SwiperProps, SwiperSlide } from '../../common/Slider';
+import { Icon, Divider, Spinner } from '@chakra-ui/react';
+
 import { IconType } from 'react-icons/lib';
+import LoadingSpinner from '../../common/LoadingSpinner';
 
 interface ProductSliderProps {
   categoryType: string;
@@ -13,7 +14,8 @@ interface ProductSliderProps {
 }
 
 const ProductSlider = ({ categoryType, icon, title }: ProductSliderProps) => {
-  const { data: products } = useGetProductsByCategoryQuery(categoryType);
+  const { data: products, isLoading } =
+    useGetProductsByCategoryQuery(categoryType);
 
   const settings: SwiperProps = {
     spaceBetween: 30,
@@ -26,19 +28,24 @@ const ProductSlider = ({ categoryType, icon, title }: ProductSliderProps) => {
         <h1 className="productSlider__title">{title}</h1>
       </div>
       <div>
-        <Slider settings={settings}>
-          {products?.map((product: Product) => (
-            <SwiperSlide key={product.name}>
-              <ProductCard
-                firstDivClassName="product"
-                secondDivClassName="product__div"
-                product={product}
-                imageSize="160px"
-              />
-            </SwiperSlide>
-          ))}
-        </Slider>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <Slider settings={settings}>
+            {products?.map((product: Product) => (
+              <SwiperSlide key={product.name}>
+                <ProductCard
+                  firstDivClassName="product"
+                  secondDivClassName="product__div"
+                  product={product}
+                  imageSize="160px"
+                />
+              </SwiperSlide>
+            ))}
+          </Slider>
+        )}
       </div>
+
       <Divider orientation="horizontal" />
     </div>
   );

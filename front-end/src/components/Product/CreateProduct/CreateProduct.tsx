@@ -1,19 +1,41 @@
 import { Icon, Button, Textarea } from '@chakra-ui/react';
 import { useState } from 'react';
-import { FaPlus, FaDollarSign, FaLightbulb, FaCheck } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
+import {
+  FaPlus,
+  FaDollarSign,
+  FaLightbulb,
+  FaCheck,
+  FaTimes
+} from 'react-icons/fa';
 import ImageInput from '../../../util/ImageInput';
 import useProduct from '../../../hooks/useProduct';
 import '../../../styles/css/Products.css';
-import InputComponent from './InputComponent';
-import SelectCategories from './SelectCategories';
+import { InputComponent, SelectCategories } from '../CreateProduct';
 
 const CreateProduct = () => {
   const { handleSetCreateProduct } = useProduct();
   const [radioValue, setRadioValue] = useState<string>('');
-  const [priceInputValue, setPriceInputValue] = useState<number | undefined>();
-  const [nameInputValue, setNameInputValue] = useState<string>('');
-  const [descriptionInputValue, setDescriptionInputValue] =
-    useState<string>('');
+
+  type FormValues = {
+    title: string;
+    price: number;
+    description: string;
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { isDirty, isValid },
+    reset
+  } = useForm<FormValues>({
+    defaultValues: {
+      title: '',
+      price: 0,
+      description: ''
+    },
+    mode: 'onChange'
+  });
 
   return (
     <div className="createProduct">
@@ -27,20 +49,20 @@ const CreateProduct = () => {
 
         <InputComponent
           icon={FaPlus}
-          value={nameInputValue}
-          setValue={setNameInputValue}
           placeholder="Digite o título"
           inputType="text"
           inputId="title"
+          register={register}
+          registerName="title"
         />
 
         <InputComponent
           icon={FaDollarSign}
-          value={priceInputValue}
-          setValue={setPriceInputValue}
           placeholder="Digite o preço"
           inputType="number"
           inputId="price"
+          register={register}
+          registerName="price"
         />
 
         <Textarea
@@ -48,29 +70,44 @@ const CreateProduct = () => {
           borderColor="#036666"
           placeholder="Descrição do produto..."
           focusBorderColor="#565264"
-          value={descriptionInputValue}
-          onChange={e => setDescriptionInputValue(e.target.value)}
+          {...register('description', { required: true })}
         />
+        <div className="createProduct__radioGroup">
+          <h1>Selecione a categoria</h1>
+          <SelectCategories value={radioValue} setValue={setRadioValue} />
+        </div>
+        {!isDirty || !isValid ? (
+          <Button
+            disabled
+            leftIcon={<Icon as={FaTimes} color="white" />}
+            variant="solid"
+            backgroundColor="#036666"
+            color="white"
+            colorScheme="teal"
+          >
+            Adicionar
+          </Button>
+        ) : (
+          <Button
+            onClick={handleSubmit(data =>
+              handleSetCreateProduct(
+                data.title,
+                data.price,
+                radioValue,
+                data.description,
+                reset
+              )
+            )}
+            leftIcon={<Icon as={FaCheck} color="white" />}
+            variant="solid"
+            backgroundColor="#036666"
+            color="white"
+            colorScheme="teal"
+          >
+            Adicionar
+          </Button>
+        )}
       </form>
-      <h1>Selecione a categoria</h1>
-      <SelectCategories value={radioValue} setValue={setRadioValue} />
-      <Button
-        onClick={() =>
-          handleSetCreateProduct(
-            nameInputValue,
-            priceInputValue,
-            radioValue,
-            descriptionInputValue
-          )
-        }
-        leftIcon={<Icon as={FaCheck} color="white" />}
-        variant="outline"
-        backgroundColor="#036666"
-        color="white"
-        border="none"
-      >
-        Adicionar
-      </Button>
     </div>
   );
 };

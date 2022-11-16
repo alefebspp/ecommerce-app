@@ -1,8 +1,6 @@
-import '../../../styles/css/Header.css';
-import NavigationButton from './NavigationButton';
-import { Icon, Button } from '@chakra-ui/react';
-import { FaShoppingCart } from 'react-icons/fa';
-import { FaBolt } from 'react-icons/fa';
+import { NavigationButton, HeaderStyle } from '../Header';
+import { Icon } from '@chakra-ui/react';
+import { FaShoppingCart, FaBolt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../features/store';
 import { ReactNode } from 'react';

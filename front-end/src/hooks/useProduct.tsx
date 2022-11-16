@@ -40,14 +40,14 @@ const useProduct = () => {
     postProduct(product);
     setCreateProduct(null);
     setSelectedImage(undefined);
-    navigate('/');
   }
 
   function handleSetCreateProduct(
     name: string,
     price: number | undefined,
     category: string,
-    description: string
+    description: string,
+    reset: () => void
   ) {
     setCreateProduct({
       name: name,
@@ -56,6 +56,7 @@ const useProduct = () => {
       image: image,
       description: description
     });
+    reset();
   }
 
   return {

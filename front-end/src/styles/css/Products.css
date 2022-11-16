@@ -37,35 +37,23 @@
   padding: 1rem;
   gap: 2rem;
 }
-
 .createProduct__title {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
-
 .createProduct__form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 .createProduct__input {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-
-.imageInput {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .createProduct__input__image {
   display: flex;
   align-items: center;
@@ -75,6 +63,21 @@
   height: 2rem;
   border-radius: 0.5rem;
   padding: 1rem;
+}
+.createProduct__radioGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.imageInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .userProducts {
@@ -113,7 +116,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .productSlider__titleGroup {
   display: flex;
   align-items: center;
@@ -121,9 +123,15 @@
   gap: 1rem;
   padding: 2rem 2rem 0 2rem;
 }
-
 .productSlider__title {
   font-weight: 500;
+}
+.productSlider__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  flex-direction: column;
 }
 
 .singleProduct {
@@ -265,5 +273,5 @@
 }
 
 .radio-button-name {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }/*# sourceMappingURL=Products.css.map */
